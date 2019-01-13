@@ -1,21 +1,30 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React from "react";
+import { StyleSheet, Text, View } from "react-native";
+import { GiftedChat } from "react-native-gifted-chat";
 export default class App extends React.Component {
-  render() {
+  state = {
+    messages: [
+      {
+        _id: 1,
+        text: "Hello developer",
+        createdAt: new Date()
+      }, {
+        _id: 2,
+        text: "Param here",
+        createdAt: new Date()
+      }
+    ]
+  };
+render() {
     return (
       <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
+        <GiftedChat messages={this.state.messages} />
       </View>
     );
   }
 }
-
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+    flex: 1
+  }
 });
